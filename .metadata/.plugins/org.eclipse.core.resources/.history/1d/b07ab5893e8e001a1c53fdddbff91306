@@ -1,0 +1,19 @@
+
+
+	public class exam {
+	  public static void m1(int a, int n) {
+	    n = n - 2;
+	    System.out.print(n);
+	  }
+	  public static int m1(double n, int a) {
+	    m1( (int)n, a);
+	    return (int)n - a;
+	  }
+	  public static void m1() {
+	    System.out.println( m1( 9.0, 9));
+	  }
+	  public static void main(String[] args) {
+	    m1();
+	  }
+	}
+	

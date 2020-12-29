@@ -1,0 +1,48 @@
+import java.util.ArrayList;
+
+/////////////////////////////// EXAM FILE HEADER ///////////////////////////////
+// Full Name: DEVIN BRESSER
+// Campus ID: 
+// WiscEmail: BRESSER2@WISC.EDU
+////////////////////////////////////////////////////////////////////////////////
+
+
+public class ShoeSaleIterator implements java.util.Iterator<Integer> {
+
+	private Integer[] contents;
+	private int nextIndex = 0;
+	
+	public ShoeSaleIterator(Integer[] array) {
+		this.contents = array;
+	}
+
+	@Override
+	public boolean hasNext() {
+		// if we're at the last index, return false
+		if(nextIndex == contents.length) return false;
+		return true;
+	}
+
+	@Override
+	public Integer next() {
+		// otherwise, retrieve the next integer minus 5 dollars
+		Integer myInt = contents[nextIndex] - 5;
+		nextIndex++;
+		return myInt;
+	}
+	
+	public static boolean saleTester() {
+		ShoeSaleIterator sale = new ShoeSaleIterator(new Integer[] {15,7,8,9,10});
+		while(sale.hasNext()) {
+			System.out.println(sale.next());
+		}
+		
+		//tests passed
+		return true;
+	}
+	
+	public static void main(String[] args) {
+		saleTester();
+	}
+	
+}

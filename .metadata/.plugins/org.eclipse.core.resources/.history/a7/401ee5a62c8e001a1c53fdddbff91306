@@ -1,0 +1,49 @@
+
+
+public class exam {
+	  
+	  // finds a factorial recursively
+	  public static int factorial(int number) {
+	  	// base case: argument is 1.
+	  	if(number==1) return 1;
+	  	return number * factorial(number-1);
+	  }
+	  
+	  // returns true if prime, false otherwise
+	  public static boolean primeChecker(int number) {
+	  	// base cases: 0 and 1 are prime, even numbers are not prime
+	  	if(number==0||number==1) return true;
+	  	if(number%2==0) return false;
+	  	
+	  	// for all other cases we have to check by dividing it by all the preceding numbers
+	  	for(int i=2; i<number; i++) {
+	  		if(number % i == 0) {
+	  			System.out.println(number + " is not prime. It is divisible by " + i);
+	  			return false;
+	  		}
+	  	}
+	  	System.out.println(number + " is prime.");
+	  	return true;
+	  }
+	  
+	  public static int fibComputer(int endIndex) {
+	  	if(endIndex==0) return 1;
+	  	if(endIndex==1) return 1;
+	  	return 2;
+	  	
+	  }
+	  
+	  public static String fibPrinter(int endIndex) {
+	  	String myString = "";
+	  	myString += (fibComputer(endIndex) + ", ");
+	  	return myString;
+	  }
+	  
+	  public static void main(String[] args) {
+	    //System.out.println(factorial(4));
+	    //System.out.println(primeChecker(53783));
+	  	fibPrinter(2);
+	    
+	  }
+	}
+	

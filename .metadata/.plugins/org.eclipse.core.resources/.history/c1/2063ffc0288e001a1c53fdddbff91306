@@ -1,0 +1,22 @@
+
+
+public class exam {
+	  
+	  // finds a factorial recursively
+	  public static int factorial(int number) {
+	  	// base case: argument is 1.
+	  	if(number==1) return 1;
+	  	return number * factorial(number-1);
+	  	
+	  
+	  	
+	  	
+	  }
+	  
+	  
+	  public static void main(String[] args) {
+	    System.out.println(factorial(5));
+	    
+	  }
+	}
+	

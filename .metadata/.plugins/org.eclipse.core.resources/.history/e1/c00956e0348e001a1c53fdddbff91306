@@ -1,0 +1,62 @@
+/////////////////////////////// EXAM FILE HEADER ///////////////////////////////
+// Full Name: DEVIN BRESSER
+// Campus ID: 9075320367
+// WiscEmail: BRESSER2@WISC.EDU
+////////////////////////////////////////////////////////////////////////////////
+
+import java.util.NoSuchElementException;
+
+public class ShoeSaleIterator implements java.util.Iterator<Integer> {
+
+	private Integer[] contents;
+	private int nextIndex = 0;
+	
+	public ShoeSaleIterator(Integer[] array) {
+		this.contents = array;
+	}
+
+	// hasNext() method checks if there is a next value in the iteration
+	
+	@Override
+	public boolean hasNext() {
+		// if we're at the last index, return false
+		if(nextIndex == contents.length) return false;
+		return true;
+	}
+
+	// next() method returns the next value in the content array
+	
+	@Override
+	public Integer next() {
+		if(!hasNext()) throw new NoSuchElementException("No next element");
+		// otherwise, retrieve the next integer minus 5 dollars
+		Integer myInt = contents[nextIndex] - 5;
+		nextIndex++;
+		return myInt;
+	}
+	
+	// saleTester() method tests the class as outlined in the exam prompt.
+	// given a test array: 40,35,30,25,20,15,10 the correct lowest sale value
+	// should be 5: 10-5 = 5. Returns true iff this is true.
+	
+	public static boolean saleTester() {
+		ShoeSaleIterator sale = new ShoeSaleIterator(new Integer[] {40,35,30,25,20,15,10});
+		Integer temp = sale.next();
+		Integer tempCheck;
+		while(sale.hasNext()) {
+			tempCheck = sale.next();
+			// overwrite temp if it is less than the original value
+			if(tempCheck<temp) temp = tempCheck;
+			System.out.println(temp);
+		}
+		
+		//test the output to see if it returns 10-5 = 5, the lowest value in the on-sale price array
+		if(temp == 5) return true;
+		return false;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("saleTester: " + saleTester());
+	}
+	
+}

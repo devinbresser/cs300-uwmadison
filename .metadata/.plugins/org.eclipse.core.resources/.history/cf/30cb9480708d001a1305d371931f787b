@@ -1,0 +1,11 @@
+
+public class exam {
+
+	public static void main(String[] args) {
+		String mood = "happy";
+		int index = mood.indexOf( "pp" );
+		System.out.println(index);
+
+	}
+
+}
